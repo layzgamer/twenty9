@@ -23,12 +23,12 @@ except AttributeError:
     _fromUtf8 = lambda s: s
 
 class Ui_MainWindow(object):
-    
+
     HAND = []
     PIT = []
     SCORE_SELF = (0,0)
     SCORE_OPPONENT = (0,0)
-    
+
     def setupUi(self, MainWindow):
 
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
@@ -56,7 +56,7 @@ class Ui_MainWindow(object):
         self.OpponentScoreCardBack.setText(_fromUtf8(""))
         self.OpponentScoreCardBack.setObjectName(_fromUtf8("OpponentScoreCardBack"))
         self.gridLayout.addWidget(self.opponentScore, 0, 0, 1, 1)
-        
+
         # <--------- Self Score --------->
         self.SelfScore = QtGui.QGroupBox(self.centralWidget)
         self.SelfScore.setTitle(_fromUtf8(""))
@@ -72,15 +72,15 @@ class Ui_MainWindow(object):
         self.SelfScoreCardBack.setText(_fromUtf8(""))
         self.SelfScoreCardBack.setObjectName(_fromUtf8("SelfScoreCardBack"))
         self.gridLayout.addWidget(self.SelfScore, 3, 2, 1, 1)
-        
-        
+
+
         self.emptyBox2 = QtGui.QGroupBox(self.centralWidget)
         self.emptyBox2.setTitle(_fromUtf8(""))
         self.emptyBox2.setFlat(True)
         self.emptyBox2.setObjectName(_fromUtf8("emptyBox2"))
         self.gridLayout.addWidget(self.emptyBox2, 3, 0, 1, 1)
-        
-        
+
+
         # <--------- Trump Box --------->
         self.emptyBox1 = QtGui.QGroupBox(self.centralWidget)
         self.emptyBox1.setTitle(_fromUtf8(""))
@@ -106,7 +106,7 @@ class Ui_MainWindow(object):
         self.LeftHand.setFont(font)
         self.LeftHand.setObjectName(_fromUtf8("LeftHand"))
         self.gridLayout.addWidget(self.LeftHand, 1, 0, 2, 1)
-        
+
         # <--------- Right Player's Hand --------->
         self.RightHand = QtGui.QGroupBox(self.centralWidget)
         self.RightHand.setMinimumSize(QtCore.QSize(CARD_WIDTH, CARD_HEIGHT*3))
@@ -117,8 +117,8 @@ class Ui_MainWindow(object):
         self.RightHand.setFont(font)
         self.RightHand.setObjectName(_fromUtf8("RightHand"))
         self.gridLayout.addWidget(self.RightHand, 1, 2, 2, 1)
-        
-        
+
+
         # <--------- Bottom Player's Hand --------->
         self.BottomHand = QtGui.QGroupBox(self.centralWidget)
         self.BottomHand.setMinimumSize(CARD_WIDTH*3, CARD_HEIGHT*1.5)
@@ -132,8 +132,8 @@ class Ui_MainWindow(object):
         self.BottomHand.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.BottomHand.setObjectName(_fromUtf8("BottomHand"))
         self.gridLayout.addWidget(self.BottomHand, 3, 1, 1, 1)
-        
-        
+
+
         # <--------- Top Player's Hand --------->
         self.TopHand = QtGui.QGroupBox(self.centralWidget)
         self.TopHand.setMinimumSize(CARD_WIDTH*3, CARD_HEIGHT*1.5)
@@ -144,7 +144,7 @@ class Ui_MainWindow(object):
         self.TopHand.setFont(font)
         self.TopHand.setObjectName(_fromUtf8("TopHand"))
         self.gridLayout.addWidget(self.TopHand, 0, 1, 1, 1)
-        
+
         # <--------- Pit --------->
         self.Pit = QtGui.QGroupBox(self.centralWidget)
         self.Pit.setTitle(_fromUtf8(""))
@@ -172,10 +172,10 @@ class Ui_MainWindow(object):
         self.BottomPit.setText(_fromUtf8(""))
         self.BottomPit.setObjectName(_fromUtf8("BottomPit"))
         self.gridLayout.addWidget(self.Pit, 1, 1, 2, 1)
-        
-        
+
+
         self.addCards()
-        
+
         MainWindow.setCentralWidget(self.centralWidget)
         self.menuBar = QtGui.QMenuBar(MainWindow)
         self.menuBar.setGeometry(QtCore.QRect(0, 0, 800, 24))
@@ -284,15 +284,15 @@ class Ui_MainWindow(object):
         self.Preferences.connect(self.Preferences, QtCore.SIGNAL("triggered()"), preferencesTriggered)
         self.Help.connect(self.Help, QtCore.SIGNAL("triggered()"), helpTriggered)
         self.Exit.connect(self.Exit, QtCore.SIGNAL("triggered()"), exitTriggered)
-        
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-    
+
     def saveGameTriggered(self):
         #print "action 4"
         return
 
-            
+
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "twenty9", None, QtGui.QApplication.UnicodeUTF8))
         self.LeftHand.setTitle(QtGui.QApplication.translate("MainWindow", "PlayerName", None, QtGui.QApplication.UnicodeUTF8))
@@ -317,11 +317,11 @@ class Ui_MainWindow(object):
         self.SinglePlayer.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+B", None, QtGui.QApplication.UnicodeUTF8))
         self.CreateGame.setText(QtGui.QApplication.translate("MainWindow", "Create Game", None, QtGui.QApplication.UnicodeUTF8))
         self.CreateGame.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+N", None, QtGui.QApplication.UnicodeUTF8))
-    
+
     def addCards(self):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/backs/back.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        
+
         # <--------- Left Player's Cards --------->
         self.LeftCard = QtGui.QPushButton(self.LeftHand)
         self.LeftCard.setGeometry(QtCore.QRect(80, 30, CARD_WIDTH, CARD_HEIGHT))
@@ -330,7 +330,7 @@ class Ui_MainWindow(object):
         self.LeftCard.setIcon(icon)
         self.LeftCard.setIconSize(CARD_SIZE)
         self.LeftCard.setObjectName(_fromUtf8("LeftCard"))
-        
+
         # <--------- Right Player's Cards --------->
         self.RightCard = QtGui.QPushButton(self.RightHand)
         self.RightCard.setGeometry(QtCore.QRect(90, 30, CARD_WIDTH, CARD_HEIGHT))
@@ -339,14 +339,14 @@ class Ui_MainWindow(object):
         self.RightCard.setIcon(icon)
         self.RightCard.setIconSize(CARD_SIZE)
         self.RightCard.setObjectName(_fromUtf8("RightCard"))
-        
+
         # <--------- Bottom Player's Cards --------->
         self.BottomCard = QtGui.QPushButton(self.BottomHand)
         self.BottomCard.setGeometry(QtCore.QRect(10, 30, CARD_WIDTH, CARD_HEIGHT))
         self.BottomCard.setMinimumSize(BUTTON_SIZE)
         self.BottomCard.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.BottomCard.setObjectName(_fromUtf8("BottomCard"))
-        
+
         # <--------- Top Player's Card --------->
         self.TopCard = QtGui.QPushButton(self.TopHand)
         self.TopCard.setGeometry(QtCore.QRect(0, 30, CARD_WIDTH, CARD_HEIGHT))
@@ -399,7 +399,8 @@ def exitTriggered():
     window.close()
     #print "action 8"
     return
-        
+
+#<---------This starts the application------->
 app = QtGui.QApplication(sys.argv)
 import beforeserver,bid,joingame,open,settings,settrump
 window = QtGui.QMainWindow()
